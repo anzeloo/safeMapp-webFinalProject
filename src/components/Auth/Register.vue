@@ -83,7 +83,7 @@ export default {
                   this.usuario.telefono = ''
                   this.usuario.email = ''
                   this.usuario.password = ''
-                  this.$router.push({name: 'home'})  
+                  this.$router.push({name: 'mapa'})  
                 })
                  
 

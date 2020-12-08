@@ -4,7 +4,7 @@
       ref="map"
       :zoom="zoom"
       :center="center"
-      style="height: 500px; width: 100%; z-index: 0"
+      style="height: 600px; width: 100%; z-index: 0"
     >
       <div v-for="figurast in figuras" :key="figurast._id">
         <!-- Dentro de este for habrá v.if por cada tipo de figura--> 
@@ -114,10 +114,10 @@ export default {
   },
   data() {
     return {
-      zoom: 13,
+      zoom: 15,
       figuras: [],
       data: '',
-      center: latLng(47.41322, -1.219482),
+      center: latLng(3.449333156009882, -76.51537622482158),
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
@@ -155,7 +155,7 @@ export default {
   },
   methods: {
     showAlert() {
-       console.log("Click")
+       alert('Programa desarrollado por Beycker Ágredo y Anderson Hormiga')
     },
     async listarFiguras(){
       try {

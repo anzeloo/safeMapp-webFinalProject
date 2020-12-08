@@ -42,7 +42,7 @@
                 <router-link class="navbar-item" to="/mapa">
                   Mapa
                 </router-link>
-                <router-link class="navbar-item" to="/welcome">
+                <router-link class="navbar-item" to="/">
                   Welcome
                 </router-link>
                 <a class="navbar-item" @click.prevent="logout">

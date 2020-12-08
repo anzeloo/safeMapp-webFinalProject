@@ -4,7 +4,7 @@
       ref="map"
       :zoom="zoom"
       :center="center"
-      style="height: 500px; width: 100%; z-index: 0"
+      style="height: 600px; width: 100%; z-index: 0"
     >
       <l-draw-toolbar position="topright"/>
       <div v-for="figurast in figuras" :key="figurast._id">
@@ -300,14 +300,14 @@ export default {
   },
   data() {
     return {
-      zoom: 13,
+      zoom: 15,
       layer: null,
       figura: {},
       figuras: [],
       estado: 'agregar',
       data: '',
       tipofigura: '',
-      center: latLng(47.41322, -1.219482),
+      center: latLng(3.449333156009882, -76.51537622482158),
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
@@ -345,10 +345,16 @@ export default {
   },
   methods: {
     showAlert() {
-       console.log("Click")
+       alert('Programa desarrollado por Beycker Ágredo y Anderson Hormiga')
     },
     async listarFiguras(){
       try {
+
+        this.figura.title = ''
+        this.figura.description = ''
+        this.figura.color = ''
+        this.figura.calification = ''
+
         this.figuras.splice(0, this.figuras.length)
 
         await axios.get("http://localhost:3000/zones/").then(res => {
