@@ -62,6 +62,9 @@ export default {
     this.listarUsuarios()
   },
   methods: {
+    /*
+    * Description: Filtra al usuario actualmente conectado
+    */
     async listarUsuarios(){
       try {
         const resDB = await db.collection('users').get()

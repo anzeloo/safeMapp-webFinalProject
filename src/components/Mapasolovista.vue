@@ -154,14 +154,20 @@ export default {
       //Ojo con este flujo, puede colocar problema el ciclo de vida entre created y mounted
   },
   methods: {
+    /*
+    * Description: Muestra el copyright
+    */
     showAlert() {
        alert('Programa desarrollado por Beycker Ágredo y Anderson Hormiga')
     },
+    /*
+    * Description: Mediante axios, lista las figuras a travéz del json que trae de mongo atlas
+    */
     async listarFiguras(){
       try {
         this.figuras.splice(0, this.figuras.length)
 
-        await axios.get("http://localhost:3000/zones/").then(res => {
+        await axios.get("https://safemapp-backend-finalproject.herokuapp.com/zones/").then(res => {
           this.data = res.data;
           console.log(this.data);
           this.data.forEach(element => {

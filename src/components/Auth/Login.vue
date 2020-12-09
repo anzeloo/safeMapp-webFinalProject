@@ -47,6 +47,9 @@ export default {
   },
   name: 'Login',
   methods: {
+    /*
+    * Description: Conexión a firebase para comprobar el usuario y la contraseña del usuario
+    */
     login() {
       this.error = ''
       if (this.email && this.password) {

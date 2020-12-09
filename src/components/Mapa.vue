@@ -344,9 +344,15 @@ export default {
       //Ojo con este flujo, puede colocar problema el ciclo de vida entre created y mounted
   },
   methods: {
+    /*
+    * Description: Muestra el copyright
+    */
     showAlert() {
        alert('Programa desarrollado por Beycker Ágredo y Anderson Hormiga')
     },
+    /*
+    * Description: Mediante axios, lista las figuras a travéz del json que trae de mongo atlas
+    */
     async listarFiguras(){
       try {
 
@@ -357,7 +363,7 @@ export default {
 
         this.figuras.splice(0, this.figuras.length)
 
-        await axios.get("http://localhost:3000/zones/").then(res => {
+        await axios.get("https://safemapp-backend-finalproject.herokuapp.com/zones/").then(res => {
           this.data = res.data;
           console.log(this.data);
           this.data.forEach(element => {
@@ -381,6 +387,9 @@ export default {
       console.log('vamos a imprimir todas las figuras')
       console.log(this.figuras)
     },
+    /*
+    * Description: guarda una figura recién creada o editada por el usuario
+    */
     async guardar(){
       //var puntuacion = '';
 
@@ -430,11 +439,11 @@ export default {
       modal.style.display = 'none';
 
       if(this.estado == 'agregar'){
-        await axios.post("http://localhost:3000/zones/", this.figura).then((result) => {
+        await axios.post("https://safemapp-backend-finalproject.herokuapp.com/zones/", this.figura).then((result) => {
           console.log(result);
         })
       }else if(this.estado == 'editar'){
-        await axios.put("http://localhost:3000/zones/" + this.figura._id, this.figura).then((result) => {
+        await axios.put("https://safemapp-backend-finalproject.herokuapp.com/zones/" + this.figura._id, this.figura).then((result) => {
           console.log(result);
         })
       }
@@ -443,6 +452,9 @@ export default {
 
       this.listarFiguras()
     },
+    /*
+    * Description: Edita una figura en el mapa dando doble click sobre ella
+    */
     async editar(id, figuraactual){
 
       this.figura = figuraactual
@@ -459,9 +471,12 @@ export default {
       console.log(id)
       //this.listarFiguras()
     },
+    /*
+    * Description: Elimina una figura en el mapa mediante el clic derecho
+    */
     async eliminar(id){
       
-      await axios.delete("http://localhost:3000/zones/" + id).then((result) => {
+      await axios.delete("https://safemapp-backend-finalproject.herokuapp.com/zones/" + id).then((result) => {
         console.log(result);
       });
       

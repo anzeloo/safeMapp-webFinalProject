@@ -23,7 +23,7 @@
         </router-link>
 
         <router-link v-else class="navbar-item" to="/mapasolovista">
-          Mapasolovista
+          Mapa (invitado)
         </router-link>
 
         <router-link class="navbar-item" to="/perfil">
@@ -78,10 +78,16 @@ export default {
     }
   },  
   methods: {
+    /*
+    * Description: Cambia el toggle en el menú
+    */
     toggleMenu () {
       const status = !this.isOpen
       this.isOpen = status
     },
+    /*
+    * Description: Cierra sesión del usuario
+    */
     logout() {
       firebase.auth().signOut().then(() => {
         this.$router.push({name: 'login'})

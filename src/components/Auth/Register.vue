@@ -68,6 +68,9 @@ export default {
   },
   name: 'Register',
   methods: {
+    /*
+    * Description: Toma los campos diligenciados por el usuario, si están correctos, carga la vista del mapa y el usuario se registra inmediatamente, si hay algún campo incorrecto muestra el error
+    */
     register() {
       this.error = ''
       if (this.usuario.nombres && this.usuario.apellidos && this.usuario.telefono && this.usuario.email && this.usuario.password) {
